@@ -1,9 +1,49 @@
 const Movies = require("./movieModel");
 
-exports.listMovie = (req, res) =>
+exports.listMovie = async (req, res) =>
 {
-    res.status(200).send({ message: "listing all users" })
+    try
+    {
+        res.status(200).send(await Movies.find({}))
+    } catch (error)
+    {
+        console.log("Failed to list items")
+        console.log(error)
+    }
+
 }
+
+
+exports.movieDeleteOne = async (req, res) =>
+{
+    try
+    {
+        await Movies.deleteOne({ title: req.body.title, actor: req.body.actor })
+        res.status(200).send(await Movies.find({}))
+    } catch (error)
+    {
+
+        res.status(200).send(console.log("Failed to list items"))
+        console.log(error)
+    }
+
+}
+
+exports.movieEdit = async (req, res) =>
+{
+    try
+    {
+        await TvShow.updateOne({ title: tvObject.titleR, actor: tvObject.actorR })
+        res.status(200).send(await Movies.find({}))
+    } catch (error)
+    {
+
+        res.status(200).send(console.log("Failed to list items"))
+        console.log(error)
+    }
+
+}
+
 
 exports.addMovie = async (req, res) =>
 {
