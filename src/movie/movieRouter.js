@@ -4,10 +4,10 @@ const { listMovie, addMovie, movieDeleteOne, movieEdit } = require("./movieContr
 
 movieRouter.get("/user", listMovie)
 
-movieRouter.post("/add", addMovie)
+movieRouter.post("/user", addMovie)
 
-movieRouter.delete("/delete", movieDeleteOne)
+movieRouter.delete("/user", movieDeleteOne)
 
-movieRouter.put("/update", movieEdit)
+movieRouter.put("/user", movieEdit)
 
 module.exports = movieRouter;

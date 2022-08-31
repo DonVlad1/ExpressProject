@@ -33,7 +33,7 @@ exports.movieEdit = async (req, res) =>
 {
     try
     {
-        await TvShow.updateOne({ title: tvObject.titleR, actor: tvObject.actorR })
+        await Movies.updateOne({ title: req.body.title, actor: req.body.actor }, { title: req.body.titleR, actor: req.body.actorR })
         res.status(200).send(await Movies.find({}))
     } catch (error)
     {
@@ -51,9 +51,9 @@ exports.addMovie = async (req, res) =>
     {
         if (req.body.title && req.body.actor)
         {
-            console.log(req.body)
-            await Movies.create({ title: req.body.title, actor: req.body.actor });
-            res.status(201).send({ title: req.body.title, actor: req.body.actor });
+
+            await Movies.create({ title: req.body.title, actor: req.body.actor })
+            res.status(200).send(await Movies.find({}))
         }
         else
         {
