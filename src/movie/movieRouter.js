@@ -2,12 +2,12 @@ const { Router } = require("express")
 const movieRouter = Router()
 const { listMovie, addMovie, movieDeleteOne, movieEdit } = require("./movieController")
 
-movieRouter.get("/user", listMovie)
+movieRouter.get("/movie", listMovie)
 
-movieRouter.post("/user", addMovie)
+movieRouter.post("/movie", addMovie)
 
-movieRouter.delete("/user", movieDeleteOne)
+movieRouter.delete("/movie", movieDeleteOne)
 
-movieRouter.put("/user", movieEdit)
+movieRouter.put("/movie", movieEdit)
 
 module.exports = movieRouter;
