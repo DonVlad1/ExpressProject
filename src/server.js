@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
 const express = require("express");
-const Movies = require("./movie/movieModel");
 const app = express();
 const port = process.env.PORT || 5000
 const movieRouter = require("./movie/movieRouter")
+const userRouter = require("./users/userRouter")
+
 require("./db/connnections");
 
 app.use(express.json())
 app.use(movieRouter)
+app.use(userRouter)
 
 
 app.listen(port, () =>
